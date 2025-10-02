@@ -1,0 +1,55 @@
+.song__card {
+    background: linear-gradient(to bottom, rgb(51, 9, 9), rgb(90, 90, 90));
+    border-radius: 18px;
+    padding: 1rem 0;
+    padding-left: 1rem;
+    text-align: center;
+}
+
+.card__title {
+    margin: 0;
+    text-align: center;
+
+}
+
+.play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.disc {
+    margin-top: 2rem;
+    width: 20%;
+}
+
+.mixing__img,
+.back__img,
+.play__img,
+.next__img,
+.repeat__img {
+    cursor: pointer;
+    transition: all .2s ease;
+    opacity: .7;
+}
+
+.mixing__img:hover,
+.back__img:hover,
+.play__img:hover,
+.next__img:hover,
+.repeat__img:hover,
+.song__add:hover {
+    transform: translateY(-3px);
+    opacity: 1;
+}
+
+.song__add {
+    display: flex;
+    justify-content: right;
+    padding-right: 2rem;
+    opacity: .7;
+    transition: all .3 ease;
+    cursor: pointer;
+}
