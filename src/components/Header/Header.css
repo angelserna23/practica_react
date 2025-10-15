@@ -44,34 +44,6 @@
     cursor: pointer;
 }
 
-.search {
-    background-color: #333;
-    padding: .6rem .4rem;
-    display: flex;
-    flex-direction: row;
-    border-radius: 22px;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-}
-
-.search__img {
-    cursor: pointer;
-}
-
-.search__browse {
-    cursor: pointer;
-}
-.search__input {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: white;
-    font-weight: 600;
-    border-right: 1px solid #121212;
-    padding-right: 1.5rem;
-}
-
 .logIn {
     display: flex;
     flex-direction: row;
