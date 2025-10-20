@@ -2,8 +2,8 @@ import React, { useState, useEffect} from "react";
 import useFetchMusic from "../hooks/useFetchMusic";
 import SearchBar from "../components/SearchBar/index";
 import SearchResults from "../components/SearchResults";
-import "./Home.css";
 import axios from "axios";
+import { SearchBarDiv, WelcomeMessage, AppMain, ListAlbum, ListContent, SongsTitle } from "./stylesHome";
 
 const API_BASE = "https://www.theaudiodb.com/api/v1/json";
 const API_KEY = "123"; //Esta key es la gratuita
@@ -63,17 +63,17 @@ export default  function Home() {
     }, [artist, albumsState])
 
     return (
-        <main className="App-main">
-            <div className="searchBar">
+        <AppMain>
+            <SearchBarDiv>
                 <SearchBar 
                     value={inputValue} 
                     onChange={setInputValue} 
                     onSubmit={handleSearch}
                 />
-            </div>
+            </SearchBarDiv>
 
             {!artist && (
-                <p className="welcome-message">Escribe un artista para comenzar tu búsqueda 🎵</p>
+                <WelcomeMessage>Escribe un artista para comenzar tu búsqueda 🎵</WelcomeMessage>
             )}
 
             {isLoading && <p>Cargando albumes...</p>}
@@ -88,22 +88,22 @@ export default  function Home() {
             {artist && !isLoading && !error && (albumsState?.length ? (
                 <section>
                     <h3>Albumes encontrados (preview temporal)</h3>
-                    <ul>
+                    <ListContent>
                         {albumsState.map((a) => (
-                            <li key={a.idAlbum}>
-                                 {a.strAlbum} — {a.strArtist} {a.intYearReleased ? `(${a.intYearReleased})` : ""}
-                            </li>
+                            <ListAlbum key={a.idAlbum}>
+                                {a.strAlbum} — {a.strArtist} {a.intYearReleased ? `(${a.intYearReleased})` : ""}
+                            </ListAlbum>
                         ))}
-                    </ul>
+                    </ListContent>
                 </section>
             ) : (
                 <p>No se encontraron albumes para "{artist}".</p>
             ))}
 
-            <h2>Songs</h2>
+            <SongsTitle>Songs</SongsTitle>
             <SearchResults 
                 songs={songs}
             />
-        </main>
+        </AppMain>
     )
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import "./Header.css";
 import logo from "../../assets/img/logo.png";
 import chevronLeft from "../../assets/img/chevron-left.svg";
 import chevronRigth from "../../assets/img/chevron-right.svg";
@@ -8,29 +7,29 @@ import notificationIcon from "../../assets/img/notification.svg";
 import friendsIcon from "../../assets/img/friends.svg";
 import logIcon from "../../assets/img/log.svg";
 import SearchBar from '../SearchBar';
-
+import { HeaderStart, HeaderComponents, HeaderInfo, HeaderTitle, HeaderImg, ChangeWindowImg, ChangeWindowHouse, Login, NotificationImg } from "./styles";
 
 const Header = () => {
     return(
-        <header className='header'>
-            <div className='header__info'>
-                <img className='header__img' src= {logo} alt=''/>
-                <h1 className='header__title'>My Music App</h1>
-            </div>
+        <HeaderStart>
+            <HeaderInfo>
+                <HeaderImg src= {logo} alt=''/>
+                <HeaderTitle>My Music App</HeaderTitle>
+            </HeaderInfo>
 
-            <div className='header__components'>
+            <HeaderComponents>
                 <div className='changeWindow'>
-                    <img className='changeWindow__img' src= {chevronLeft}/>
-                    <img className='changeWindow__img' src= {chevronRigth}/>
+                    <ChangeWindowImg src= {chevronLeft}/>
+                    <ChangeWindowImg src= {chevronRigth}/>
                 </div>
-                <img className='changeWindow__house' src= {homeIcon}/>
-                <div className='logIn'>
-                    <img className='notification__img' src= {notificationIcon}/>
+                <ChangeWindowHouse src= {homeIcon}/>
+                <Login>
+                    <NotificationImg src= {notificationIcon}/>
                     <img className='notification__friends' src= {friendsIcon}/>
                     <img className='notification__logIn' src= {logIcon}/>
-                </div>
-            </div>
-        </header>
+                </Login>
+            </HeaderComponents>
+        </HeaderStart>
     )
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import "./SearchResults.css";
 import { Link } from "react-router-dom";
+import { ListContent, ListSong, SongTitle, SongText } from "./styles";
+
 
 const SearchResults = ({ songs = [], onAdd }) => {
   if (!songs || songs.length === 0) {
@@ -13,20 +14,20 @@ const SearchResults = ({ songs = [], onAdd }) => {
 
   return (
     <section className='results'>
-      <ul className='results__list'>
+      <ListContent className='results__list'>
         {songs.map((song) => (
-          <li key={song.trackId} className='results__item'>
+          <ListSong key={song.trackId}>
             <div className='results__meta'>
               {song.trackId ? (
-                <h4 className='results__title'>
+                <SongTitle className='results__title'>
                   <Link to={`/song/${song.trackId}`}>{song.trackTitle}</Link> 
-                </h4>
+                </SongTitle>
               ) : (
-                <h4 className='results__title'>{song.trackTitle}</h4>
+                <SongTitle className='results__title'>{song.trackTitle}</SongTitle>
               )}
-              <p className='results__subtitle'>
-                {song.artistName} — <span className='results__album'>{song.albumTitle}</span> {/*Mostramos la banda y album*/}
-              </p>
+              <SongText className='results__subtitle'>
+                ✅ {song.artistName} — <span className='results__album'>{song.albumTitle}</span> {/*Mostramos la banda y album*/}
+              </SongText>
             </div>
 
             {typeof onAdd === "function" && (
@@ -38,9 +39,9 @@ const SearchResults = ({ songs = [], onAdd }) => {
                 + Add
               </button>
             )}
-          </li>
+          </ListSong>
         ))}
-      </ul>
+      </ListContent>
     </section>
   );
 };

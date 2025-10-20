@@ -6,23 +6,30 @@ import SearchResults from "./components/SearchResults/index";
 import Library from "./components/Library";
 import Home from "./Pages/Home";
 import SongDetail from "./Pages/SongDetail";
-import "./index.css";
+//import "./index.css";
+
+//Importacion para trabajar para styled-components
+import { ThemeProvider } from "styled-components";
+import Theme from "./theme/index";
+import GlobalStyles from "./theme/GlobalStyles";
 
 function App() {
-
     return(
-      <div className="App">
-        <header className="App-header">
-          <Header appName="Music App" />
-        </header>
+      <ThemeProvider theme={Theme}>
+        <GlobalStyles />
+          <div className="App">
+            <header className="App-header">
+              <Header appName="Music App" />
+            </header>
 
-        <main className="App-main">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/song/:id" element={<SongDetail />} />
-          </Routes>
-        </main>
-      </div>
+            <main className="App-main">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/song/:id" element={<SongDetail />} />
+              </Routes>
+            </main>
+          </div>
+      </ThemeProvider>
     )
 };
 

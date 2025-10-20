@@ -1,6 +1,6 @@
 import React from "react";
-import "./SearchBar.css";
 import searchIcon from "../../assets/img/search.svg";
+import { Search, SearchImg, SearchInput, ButtonSubmit } from "./styles";
 
 const SearchBar = ({ value, onChange, onSubmit }) => {
     const handleSubmit = (e) => {
@@ -10,17 +10,17 @@ const SearchBar = ({ value, onChange, onSubmit }) => {
     }
     
     return (
-        <form onSubmit={handleSubmit} className="search">
-            <input 
+        <Search onSubmit={handleSubmit}>
+            <SearchInput
                 className='search__input' 
                 placeholder='Who you wanna search?'
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
             />
-            <button type="submit" className="button_submit">
-                <img className='search__img' src= {searchIcon} alt="go"/>
-            </button>
-        </form>
+            <ButtonSubmit type="submit" >
+                <SearchImg src= {searchIcon} alt="go"/>
+            </ButtonSubmit>
+        </Search>
     )
 }
 
